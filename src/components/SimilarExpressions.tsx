@@ -29,12 +29,19 @@ function ComparisonValue({ text, exp, vsExp }: { text: string; exp: string; vsEx
 
 export default function SimilarExpressions({ data }: SimilarExpressionsProps) {
   return (
-    <div className="bg-[#F7F7F5] rounded-2xl p-8 space-y-5 border border-[#E8E8E5] shadow-sm">
-      <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Similar Expressions 相近表达</h2>
+    <div className="bg-[#FDFCF9] border border-[#DDD3C4] p-7 space-y-5">
+      <div className="space-y-1 mb-2">
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="text-[10px] text-[#9C9488] font-mono tracking-wider">04</span>
+          <div className="h-px flex-1 bg-[#DDD3C4]/50" />
+        </div>
+        <h2 className="font-serif text-sm text-[#6B6258] font-medium">THE CONTRAST</h2>
+        <p className="text-[11px] text-[#9C9488]">Similar Expressions</p>
+      </div>
 
       <div className="space-y-5">
         {data.map((item) => (
-          <div key={item.vsExpression} className="bg-white rounded-xl p-6 border border-[#E8E8E5] shadow-sm space-y-4">
+          <div key={item.vsExpression} className="bg-[#F7F3EA]/30 p-6 border border-[#DDD3C4] space-y-4">
             <div className="flex items-center gap-3 text-sm">
               <span className="font-semibold text-[#222]">{item.expression}</span>
               <span className="text-[11px] text-[#999] uppercase tracking-wider">VS</span>
@@ -56,9 +63,9 @@ export default function SimilarExpressions({ data }: SimilarExpressionsProps) {
               </ComparisonRow>
             </div>
 
-            <div className="border-t border-[#E8E8E5] pt-3">
-              <span className="text-[11px] text-[#999] uppercase tracking-wider block mb-1">When to use 何时用</span>
-              <p className="text-sm text-[#555]">
+            <div className="border-t border-[#DDD3C4]/50 pt-3">
+              <span className="text-[11px] text-[#9C9488] uppercase tracking-wider block mb-1">When to Use</span>
+              <p className="text-sm text-[#6B6258]">
                 <BoldText text={item.whenToUse} keywords={[item.expression, item.vsExpression]} />
               </p>
             </div>

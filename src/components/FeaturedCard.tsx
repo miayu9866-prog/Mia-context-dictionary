@@ -15,15 +15,15 @@ export default function FeaturedCard({ expression, cachedMeaning }: { expression
       <Link
         href={`/word/${encodeURIComponent(expression)}`}
         className="group block bg-[#F7F7F5] rounded-2xl p-6 space-y-3
-          hover:bg-[#EFEFED] transition-all duration-200 border border-transparent hover:border-[#E8E8E5]"
+          hover:bg-[#F7F3EA]/50 transition-all duration-200 border border-[#DDD3C4] hover:border-[#C4B8A8]"
       >
-        <h3 className="text-lg font-medium text-[#222] group-hover:opacity-70 transition-opacity">
+        <h3 className="text-lg font-medium text-[#2C2925] group-hover:opacity-70 transition-opacity">
           {expression}
         </h3>
         <p className="text-sm text-[#666] leading-relaxed line-clamp-2">{cachedMeaning}</p>
         <div className="flex items-center gap-2 pt-1">
-          <BookCheck className="w-3.5 h-3.5 text-emerald-400" />
-          <span className="text-xs text-[#888]">Cached</span>
+          <BookCheck className="w-3.5 h-3.5 text-[#A0856B]" />
+          <span className="text-xs text-[#9C9488]">Cached</span>
         </div>
       </Link>
     );
@@ -35,14 +35,14 @@ export default function FeaturedCard({ expression, cachedMeaning }: { expression
       <Link
         href={`/word/${encodeURIComponent(expression)}`}
         className="group block bg-[#F7F7F5] rounded-2xl p-6 space-y-3
-          hover:bg-[#EFEFED] transition-all duration-200 border border-transparent hover:border-[#E8E8E5]"
+          hover:bg-[#F7F3EA]/50 transition-all duration-200 border border-[#DDD3C4] hover:border-[#C4B8A8]"
       >
-        <h3 className="text-lg font-medium text-[#222] group-hover:opacity-70 transition-opacity">
+        <h3 className="text-lg font-medium text-[#2C2925] group-hover:opacity-70 transition-opacity">
           {expression}
         </h3>
         <div className="flex items-center gap-2 pt-1">
-          <BookOpen className="w-4 h-4 text-emerald-400" />
-          <span className="text-xs text-[#888]">Search to explore</span>
+          <BookOpen className="w-4 h-4 text-[#A0856B]" />
+          <span className="text-xs text-[#9C9488]">Search to explore</span>
         </div>
       </Link>
     );
@@ -53,19 +53,19 @@ export default function FeaturedCard({ expression, cachedMeaning }: { expression
   return (
     <Link
       href={`/word/${encodeURIComponent(expression)}`}
-      className="group block bg-[#F7F7F5] rounded-2xl p-6 space-y-3
-        hover:bg-[#EFEFED] transition-all duration-200 border border-transparent hover:border-[#E8E8E5]"
-    >
-      <h3 className="text-lg font-medium text-[#222] group-hover:opacity-70 transition-opacity">
+        className="group block bg-[#F7F7F5] rounded-2xl p-6 space-y-3
+          hover:bg-[#F7F3EA]/50 transition-all duration-200 border border-[#DDD3C4] hover:border-[#C4B8A8]"
+      >
+        <h3 className="text-lg font-medium text-[#2C2925] group-hover:opacity-70 transition-opacity">
         {expression}
       </h3>
-      <p className="text-sm text-[#666] leading-relaxed line-clamp-2">
+      <p className="text-sm text-[#6B6258] leading-relaxed line-clamp-2">
         {data.coreMeaning.english}
       </p>
       {firstTag && (
         <div className="flex items-center gap-2 pt-1">
           <span>{firstTag.emoji}</span>
-          <span className="text-xs text-[#888]">{firstTag.label}</span>
+          <span className="text-xs text-[#9C9488]">{firstTag.label}</span>
         </div>
       )}
     </Link>
@@ -74,7 +74,7 @@ export default function FeaturedCard({ expression, cachedMeaning }: { expression
 
 export function FeaturedGrid() {
   const { history } = useSearchHistory();
-  const defaultExpressions = ["awkward", "figure out", "sneak around", "resort to"];
+  const defaultExpressions = ["keep tabs on", "figure out", "resort to", "awkward"];
 
   const expressions = history.length > 0
     ? history.slice(0, 4).map((item) => item.expression)

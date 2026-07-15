@@ -22,16 +22,16 @@ export default function SearchBar() {
     <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
       <div className="relative group">
         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-          <Search className="w-4 h-4 text-gray-400 group-focus-within:text-emerald-500 transition-colors" />
+          <Search className="w-4 h-4 text-[#9C9488] group-focus-within:text-[#A0856B] transition-colors" />
         </div>
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="What expression do you want to understand?"
-          className="w-full pl-11 pr-5 py-3.5 bg-white rounded-xl border border-[#E8E8E5]
-            text-sm text-[#222] placeholder:text-[#999]
-            focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20
+          placeholder="Explore an expression"
+          className="w-full pl-11 pr-5 py-3.5 bg-white border border-[#DDD3C4]
+            text-sm text-[#2C2925] placeholder:text-[#9C9488]
+            focus:outline-none focus:border-[#A0856B] focus:ring-2 focus:ring-[#A0856B]/20
             transition-all duration-200"
         />
       </div>

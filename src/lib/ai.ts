@@ -25,10 +25,34 @@ const ExpressionSchema = z.object({
   commonness: z.number().int().min(1).max(5),
   relatedExpressions: z.array(z.string()),
   nativeFeeling: z.object({
+    coreFeeling: z.string(),
+    emotionalMeaning: z.string(),
+    chineseExplanation: z.string(),
     intro: z.string(),
     details: z.array(z.string()),
     keyInsight: z.string(),
   }),
+  semanticMap: z.object({
+    emotionLevel: z.string(),
+    formality: z.string(),
+    frequency: z.string(),
+    relatedExpressions: z.array(
+      z.object({
+        expression: z.string(),
+        emotion: z.string(),
+        formality: z.string(),
+        frequency: z.string(),
+        position: z.object({ x: z.number(), y: z.number() }),
+      })
+    ),
+  }),
+  expressionFamily: z.array(
+    z.object({
+      expression: z.string(),
+      meaning: z.string(),
+      difference: z.string(),
+    })
+  ),
   contextMap: z.object({
     scenes: z.array(
       z.object({

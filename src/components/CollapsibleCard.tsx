@@ -13,18 +13,18 @@ export default function CollapsibleCard({ title, defaultOpen = false, children }
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-[#F7F7F5] rounded-2xl border border-[#E8E8E5] shadow-sm overflow-hidden transition-all duration-200">
+    <div className="bg-[#FDFCF9] border border-[#DDD3C4] overflow-hidden transition-all duration-200">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-[#EFEFED] transition-colors"
+        className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-[#F7F3EA]/50 transition-colors"
       >
         <div className="flex items-center gap-2">
-          <BookText className="w-3.5 h-3.5 text-[#999]" />
-          <h3 className="text-sm font-medium text-[#666] tracking-wide uppercase">{title}</h3>
+          <BookText className="w-3.5 h-3.5 text-[#9C9488]" />
+          <h3 className="text-sm font-medium text-[#6B6258]">{title}</h3>
         </div>
-        {open ? <ChevronUp className="w-3.5 h-3.5 text-[#999]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#999]" />}
+        {open ? <ChevronUp className="w-3.5 h-3.5 text-[#9C9488]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#9C9488]" />}
       </button>
-      {open && <div className="px-6 pb-5">{children}</div>}
+      {open && <div className="px-5 pb-5">{children}</div>}
     </div>
   );
 }

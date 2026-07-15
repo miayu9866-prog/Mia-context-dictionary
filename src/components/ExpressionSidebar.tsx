@@ -28,80 +28,91 @@ export default function ExpressionSidebar({ data }: ExpressionSidebarProps) {
     }
   };
 
+  const expType = data.expression.includes(" ") ? "Phrasal Verb" : "Word";
+  const cefrLevel: Record<number, string> = { 5: "C1", 4: "B2", 3: "B1", 2: "A2", 1: "A1" };
+  const level = cefrLevel[data.commonness] || "B1";
+  const tone = data.tags.some((t) => /formal|written|academic/i.test(t.label))
+    ? "Formal"
+    : data.tags.some((t) => /informal|casual|oral|daily/i.test(t.label))
+    ? "Informal"
+    : "Neutral";
+
   return (
-    <aside className="bg-white rounded-2xl border border-[#E8E8E5] shadow-sm p-6 space-y-7">
-      {/* Expression */}
-      <div>
-        <h1 className="text-4xl font-semibold tracking-tight text-[#222] leading-tight">
-          {data.expression}
-        </h1>
-      </div>
-
-      {/* Pronunciation - US only */}
-      <div className="space-y-3">
-        <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Pronunciation</h2>
-        <button
-          onClick={speak}
-          className="w-full flex items-center gap-3 p-3 bg-[#F7F7F5] rounded-xl
-            hover:bg-[#EFEFED] transition-all duration-200 border border-[#E8E8E5] group"
-        >
-          <span className="text-base">🇺🇸</span>
-          <div className="flex-1 text-left">
-            <span className="text-xs text-[#888] block">American English</span>
-            <span className="text-sm text-[#555] font-mono">{data.pronunciation.us.ipa}</span>
+    <aside className="bg-white border border-[#DDD3C4] p-7 space-y-8">
+      {/* Archive metadata grid */}
+      <div className="space-y-4">
+        <div className="pb-4 border-b border-[#DDD3C4]/50">
+          <h1 className="font-serif text-3xl tracking-tight text-[#2C2925] leading-tight font-medium">
+            {data.expression}
+          </h1>
+        </div>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-xs">
+          <div>
+            <span className="text-[10px] text-[#9C9488] uppercase tracking-wider">Type</span>
+            <p className="text-[#6B6258] mt-0.5">{expType}</p>
           </div>
-          <Volume2 className="w-4 h-4 text-[#999] group-hover:text-emerald-500 transition-colors" />
-        </button>
+          <div>
+            <span className="text-[10px] text-[#9C9488] uppercase tracking-wider">Level</span>
+            <p className="text-[#6B6258] mt-0.5">{level}</p>
+          </div>
+          <div className="col-span-2">
+            <span className="text-[10px] text-[#9C9488] uppercase tracking-wider">Frequency</span>
+            <div className="mt-0.5">
+              <StarRating count={data.commonness} />
+            </div>
+          </div>
+          <div className="col-span-2">
+            <span className="text-[10px] text-[#9C9488] uppercase tracking-wider">Tone</span>
+            <p className="text-[#6B6258] mt-0.5">{tone}</p>
+          </div>
+        </div>
       </div>
 
-      {/* Core Meaning - bilingual */}
-      <div className="space-y-3">
-        <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Meaning</h2>
-        <p className="text-sm text-[#222] leading-relaxed">{data.coreMeaning.english}</p>
-        <p className="text-xs text-[#888] leading-relaxed">{data.coreMeaning.chinese}</p>
+      {/* Pronunciation */}
+      <div>
+        <span className="text-[10px] text-[#9C9488] uppercase tracking-wider block mb-2">Pronunciation</span>
+        <div className="border border-[#DDD3C4] p-3">
+          <button
+            onClick={speak}
+            className="w-full flex items-center gap-3 text-left group"
+          >
+            <span className="text-base">🇺🇸</span>
+            <div className="flex-1">
+              <span className="text-[11px] text-[#9C9488] block">American English</span>
+              <span className="text-sm text-[#6B6258] font-mono">{data.pronunciation.us.ipa}</span>
+            </div>
+            <Volume2 className="w-3.5 h-3.5 text-[#9C9488] group-hover:text-[#A0856B] transition-colors" />
+          </button>
+        </div>
       </div>
 
-      {/* Tags */}
-      <div className="space-y-3">
-        <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Context</h2>
-        <div className="flex flex-wrap gap-2">
+      {/* Core Meaning */}
+      <div>
+        <span className="text-[10px] text-[#9C9488] uppercase tracking-wider block mb-2">Definition</span>
+        <p className="text-sm text-[#2C2925] leading-relaxed">{data.coreMeaning.english}</p>
+        <p className="text-xs text-[#9C9488] leading-relaxed mt-1.5">{data.coreMeaning.chinese}</p>
+      </div>
+
+      {/* Tags as archive labels */}
+      <div>
+        <span className="text-[10px] text-[#9C9488] uppercase tracking-wider block mb-2">Labels</span>
+        <div className="flex flex-wrap gap-1.5">
           {data.tags.map((tag) => (
             <span
               key={tag.label}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F7F7F5] rounded-full text-xs text-[#555]"
+              className="inline-flex items-center gap-1 px-2.5 py-1 border border-[#DDD3C4] text-[11px] text-[#6B6258] bg-[#FDFCF9]"
             >
-              <span>{tag.emoji}</span>
+              <span className="text-xs">{tag.emoji}</span>
               <span>{tag.label}</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* Commonness */}
-      <div className="space-y-2">
-        <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Commonness</h2>
-        <StarRating count={data.commonness} />
-      </div>
-
-      {/* Related Expressions */}
-      <div className="space-y-3">
-        <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Related</h2>
-        <div className="space-y-1.5">
-          {data.relatedExpressions.map((exp) => (
-            <a
-              key={exp}
-              href={`/word/${encodeURIComponent(exp)}`}
-              className="block text-sm text-[#222] underline underline-offset-2 decoration-[#DDD]
-                hover:decoration-emerald-500 transition-all duration-200"
-            >
-              {exp}
-            </a>
-          ))}
-    </div>
-      </div>
-
       {/* Word Origin */}
-      <WordOrigin data={data.wordOrigin} />
+      <div>
+        <WordOrigin data={data.wordOrigin} />
+      </div>
     </aside>
   );
 }

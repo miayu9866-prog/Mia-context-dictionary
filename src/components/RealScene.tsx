@@ -12,8 +12,15 @@ const styleConfig: Record<string, { label: string; emoji: string; bg: string; co
 
 export default function RealScene({ scenes }: RealSceneProps) {
   return (
-    <div className="bg-[#F7F7F5] rounded-2xl p-8 space-y-6 border border-[#E8E8E5] shadow-sm">
-      <h2 className="text-xs font-medium text-[#999] uppercase tracking-widest">Real-life Scene 真实场景</h2>
+    <div className="bg-[#FDFCF9] border border-[#DDD3C4] p-7 space-y-6">
+      <div className="space-y-1 mb-2">
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="text-[10px] text-[#9C9488] font-mono tracking-wider">03</span>
+          <div className="h-px flex-1 bg-[#DDD3C4]/50" />
+        </div>
+        <h2 className="font-serif text-sm text-[#6B6258] font-medium">THE TERRITORY</h2>
+        <p className="text-[11px] text-[#9C9488]">Real Life Scenes</p>
+      </div>
 
       <div className="space-y-5">
         {scenes.map((scene, i) => {
@@ -22,25 +29,25 @@ export default function RealScene({ scenes }: RealSceneProps) {
             <div key={i} className="space-y-3">
               {/* Scene header */}
               <div className="flex items-center gap-2">
-                <span className={`text-[11px] font-medium ${cfg.color}`}>{cfg.emoji} {cfg.label}</span>
+                <span className="text-[11px] text-[#6B6258]">{cfg.emoji} {cfg.label}</span>
               </div>
 
               {/* Situation */}
               <p className="text-sm text-[#444] leading-relaxed">{scene.situation}</p>
 
               {/* Subtitle card */}
-              <div className="bg-white rounded-xl p-5 space-y-3 border border-[#E8E8E5]">
-                <p className="text-base text-[#222] font-[450] leading-relaxed">
+              <div className="bg-[#F7F3EA]/30 p-5 space-y-3 border border-[#DDD3C4]">
+                <p className="text-base text-[#2C2925] font-[450] leading-relaxed">
                   {scene.nativeExpression}
                 </p>
-                <div className="border-t border-[#E8E8E5] pt-3 space-y-2">
+                <div className="border-t border-[#DDD3C4]/50 pt-3 space-y-2">
                   <div>
-                    <span className="text-[11px] text-[#999] uppercase tracking-wider">Meaning 含义</span>
-                    <p className="text-sm text-[#555] mt-0.5">{scene.meaning}</p>
+                    <span className="text-[11px] text-[#9C9488] uppercase tracking-wider">Meaning</span>
+                    <p className="text-sm text-[#6B6258] mt-0.5">{scene.meaning}</p>
                   </div>
                   <div>
-                    <span className="text-[11px] text-[#999] uppercase tracking-wider">Native feeling 母语感觉</span>
-                    <p className="text-sm text-[#555] mt-0.5">{scene.nativeFeeling}</p>
+                    <span className="text-[11px] text-[#9C9488] uppercase tracking-wider">Native Feeling</span>
+                    <p className="text-sm text-[#6B6258] mt-0.5">{scene.nativeFeeling}</p>
                   </div>
                 </div>
               </div>

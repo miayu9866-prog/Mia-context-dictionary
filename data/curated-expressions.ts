@@ -16,6 +16,9 @@ export const curatedExpressions: Record<string, ExpressionData> = {
     commonness: 5,
     relatedExpressions: ["embarrassing", "uncomfortable", "weird"],
     nativeFeeling: {
+      coreFeeling: "An awkward situation feels like a moment when the social flow breaks and nobody knows where to look.",
+      emotionalMeaning: "The word captures social friction, physical clumsiness, or situational discomfort — a moment that doesn't sit right.",
+      chineseExplanation: "不是简单的'尴尬'，而是一种'事情进行得不自然，让人感觉不舒服'的微妙感觉。",
       intro: "awkward is not simply \"embarrassing.\"",
       details: [
         "It describes a moment when something feels socially uncomfortable or unnatural.",
@@ -62,6 +65,21 @@ export const curatedExpressions: Record<string, ExpressionData> = {
       available: true,
     },
     learningTip: "想象一个场景：电梯里只有你和陌生人，两人都盯着楼层数字——这种沉默感就是 awkward。下次遇到冷场，心里默念 'this is awkward'，让这个词和身体感受绑定。",
+    semanticMap: {
+      emotionLevel: "negative",
+      formality: "informal",
+      frequency: "very common",
+      relatedExpressions: [
+        { expression: "awkward", emotion: "negative", formality: "informal", frequency: "very common", position: { x: 85, y: 40 } },
+        { expression: "embarrassing", emotion: "negative", formality: "neutral", frequency: "common", position: { x: 70, y: 75 } },
+        { expression: "uncomfortable", emotion: "negative", formality: "neutral", frequency: "very common", position: { x: 80, y: 50 } },
+        { expression: "weird", emotion: "neutral", formality: "informal", frequency: "common", position: { x: 65, y: 20 } },
+      ],
+    },
+    expressionFamily: [
+      { expression: "awkwardness", meaning: "The state of being awkward", difference: "Noun form of awkward" },
+      { expression: "awkwardly", meaning: "In an awkward manner", difference: "Adverb form describing the action" },
+    ],
   },
 
   "figure out": {
@@ -79,6 +97,9 @@ export const curatedExpressions: Record<string, ExpressionData> = {
     commonness: 5,
     relatedExpressions: ["find out", "work out", "solve"],
     nativeFeeling: {
+      coreFeeling: "Figure out is the mental 'click' when confusion turns into clarity — you worked through the puzzle and now you understand.",
+      emotionalMeaning: "It emphasizes the active thinking process, not passive discovery. There's a sense of accomplishment and relief when you finally figure something out.",
+      chineseExplanation: "强调通过主动思考弄明白，不是被动知道答案。带有'终于想通了'的成就感。",
       intro: "figure out is not the same as \"know\" or \"find.\"",
       details: [
         "It implies mental effort — you tried, you thought, and you finally understood.",
@@ -121,6 +142,21 @@ export const curatedExpressions: Record<string, ExpressionData> = {
     ],
     wordOrigin: { text: "", chinese: "", available: false },
     learningTip: "想象你在拼拼图——一开始毫无头绪，不断尝试后 'click' 一声拼上了。这个瞬间就是 figure out。每次用这个词，脑中浮现那个「卡扣扣上」的声音。",
+    semanticMap: {
+      emotionLevel: "neutral",
+      formality: "informal",
+      frequency: "very common",
+      relatedExpressions: [
+        { expression: "figure out", emotion: "neutral", formality: "informal", frequency: "very common", position: { x: 85, y: 10 } },
+        { expression: "find out", emotion: "neutral", formality: "neutral", frequency: "very common", position: { x: 90, y: 5 } },
+        { expression: "work out", emotion: "neutral", formality: "neutral", frequency: "common", position: { x: 70, y: 10 } },
+        { expression: "solve", emotion: "neutral", formality: "formal", frequency: "common", position: { x: 60, y: 5 } },
+      ],
+    },
+    expressionFamily: [
+      { expression: "figure", meaning: "A number, shape, or person", difference: "Root word with many unrelated meanings" },
+      { expression: "figuring out", meaning: "The ongoing process of understanding", difference: "Continuous form emphasizes the process" },
+    ],
   },
 
   "sneak around": {
@@ -138,6 +174,9 @@ export const curatedExpressions: Record<string, ExpressionData> = {
     commonness: 3,
     relatedExpressions: ["creep around", "skulk", "lurk"],
     nativeFeeling: {
+      coreFeeling: "Sneak around carries a guilty, nervous energy — you're doing something you're not supposed to be doing.",
+      emotionalMeaning: "It's not just about moving quietly; it's about hiding your actions because you'd be in trouble if caught. Can be playful mischievous or seriously deceptive.",
+      chineseExplanation: "不只是'悄悄移动'，而是'做不该做的事，怕被发现'那种偷偷摸摸的感觉。可以是调皮也可以是背叛。",
       intro: "sneak around carries a sense of doing something you shouldn't be doing.",
       details: [
         "It's not just about moving quietly — it's about hiding your actions.",
@@ -176,6 +215,21 @@ export const curatedExpressions: Record<string, ExpressionData> = {
       available: true,
     },
     learningTip: "想象你深夜蹑手蹑脚走过父母房间门口——每一步都踩得很轻，屏住呼吸。这个全身紧绷的感觉就是 sneak around。用手作成猫步姿势，脚趾先着地，同时轻声说 'sneak... sneak... sneak...'",
+    semanticMap: {
+      emotionLevel: "negative",
+      formality: "informal",
+      frequency: "moderate",
+      relatedExpressions: [
+        { expression: "sneak around", emotion: "negative", formality: "informal", frequency: "moderate", position: { x: 45, y: 60 } },
+        { expression: "creep around", emotion: "negative", formality: "informal", frequency: "rare", position: { x: 25, y: 70 } },
+        { expression: "skulk", emotion: "negative", formality: "formal", frequency: "rare", position: { x: 15, y: 80 } },
+        { expression: "lurk", emotion: "negative", formality: "informal", frequency: "moderate", position: { x: 35, y: 65 } },
+      ],
+    },
+    expressionFamily: [
+      { expression: "sneak", meaning: "To move quietly and secretly", difference: "Base verb, can be used alone" },
+      { expression: "sneaky", meaning: "Acting in a secretive or deceitful way", difference: "Adjective describing a person or action" },
+    ],
   },
 
   "resort to": {
@@ -193,6 +247,9 @@ export const curatedExpressions: Record<string, ExpressionData> = {
     commonness: 4,
     relatedExpressions: ["fall back on", "turn to", "default to"],
     nativeFeeling: {
+      coreFeeling: "You don't choose it because you want to. You choose it because other options have failed.",
+      emotionalMeaning: "The word carries a heavy sense of defeat — it implies you've exhausted all better options and are now taking a path you would have preferred to avoid.",
+      chineseExplanation: "不是主动选择，而是在没有更好选择时被迫采用。这个表达总是带着一种无奈和妥协的情绪。",
       intro: "resort to always carries a sense of reluctance and defeat.",
       details: [
         "It implies you've exhausted all better options.",
@@ -231,6 +288,22 @@ export const curatedExpressions: Record<string, ExpressionData> = {
       available: true,
     },
     learningTip: "想象手机快没电了，充电宝也用完了，咖啡馆没有插座——最后你不得不关机。这个「所有选择都试过了，只剩下我不想要的选项」的心情，就是 resort to。",
+    semanticMap: {
+      emotionLevel: "negative",
+      formality: "neutral",
+      frequency: "common",
+      relatedExpressions: [
+        { expression: "resort to", emotion: "negative", formality: "neutral", frequency: "common", position: { x: 60, y: 75 } },
+        { expression: "fall back on", emotion: "neutral", formality: "neutral", frequency: "common", position: { x: 65, y: 30 } },
+        { expression: "turn to", emotion: "neutral", formality: "neutral", frequency: "common", position: { x: 70, y: 20 } },
+        { expression: "default to", emotion: "neutral", formality: "formal", frequency: "moderate", position: { x: 50, y: 25 } },
+      ],
+    },
+    expressionFamily: [
+      { expression: "last resort", meaning: "The final option when everything else has failed", difference: "Noun phrase referring to the option itself, not the action" },
+      { expression: "tourist resort", meaning: "A holiday destination", difference: "Unrelated meaning — a place people go for vacation" },
+      { expression: "resort", meaning: "To turn to something for help", difference: "Base verb, used without 'to' in legal/formal contexts" },
+    ],
   },
 };
 

@@ -9,6 +9,7 @@ import NativeFeeling from "@/components/NativeFeeling";
 import ContextMap from "@/components/ContextMap";
 import RealScene from "@/components/RealScene";
 import SimilarExpressions from "@/components/SimilarExpressions";
+import ExpressionFamily from "@/components/ExpressionFamily";
 import LearningTip from "@/components/LearningTip";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 
@@ -117,8 +118,9 @@ export default function WordPage({ params }: WordPageProps) {
           </div>
         </main>
       ) : data ? (
-        <main className="flex-1 overflow-hidden max-w-6xl mx-auto w-full px-6 pt-8">
-          <div className="h-full flex flex-col lg:flex-row gap-12 lg:gap-16">
+        <main className="flex-1 flex flex-col overflow-hidden max-w-6xl mx-auto w-full px-6 pt-8">
+         {/* Atlas Entry Header */}
+          <div className="flex-1 flex flex-col lg:flex-row gap-12 lg:gap-16 overflow-hidden">
             <div className="w-full shrink-0 lg:w-[30%] lg:overflow-y-auto lg:pb-8">
               <ExpressionSidebar data={data} />
             </div>
@@ -127,6 +129,10 @@ export default function WordPage({ params }: WordPageProps) {
               <NativeFeeling data={data.nativeFeeling} expression={data.expression} />
               <ContextMap scenes={data.contextMap.scenes} />
               <RealScene scenes={data.realScene.scenes} />
+              <ExpressionFamily
+                mainExpression={data.expression}
+                family={data.expressionFamily}
+              />
               <SimilarExpressions data={data.similarExpressions} />
               <LearningTip tip={data.learningTip} />
             </div>

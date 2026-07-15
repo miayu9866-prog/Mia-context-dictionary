@@ -10,8 +10,8 @@ export default function WordOrigin({ data }: WordOriginProps) {
   return (
     <CollapsibleCard title="Word Origin 词源">
       <div className="space-y-3">
-        <p className="text-sm text-[#555] leading-relaxed">{data.text}</p>
-        <p className="text-sm text-[#888] leading-relaxed">{data.chinese}</p>
+        <p className="text-sm text-[#6B6258] leading-relaxed">{data.text}</p>
+        <p className="text-sm text-[#9C9488] leading-relaxed">{data.chinese}</p>
       </div>
     </CollapsibleCard>
   );

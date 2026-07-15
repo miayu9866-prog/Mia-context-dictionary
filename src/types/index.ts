@@ -26,10 +26,30 @@ export interface ExpressionData {
   commonness: number;
   relatedExpressions: string[];
   nativeFeeling: {
+    coreFeeling: string;
+    emotionalMeaning: string;
+    chineseExplanation: string;
     intro: string;
     details: string[];
     keyInsight: string;
   };
+  semanticMap: {
+    emotionLevel: string;
+    formality: string;
+    frequency: string;
+    relatedExpressions: {
+      expression: string;
+      emotion: string;
+      formality: string;
+      frequency: string;
+      position: { x: number; y: number };
+    }[];
+  };
+  expressionFamily: {
+    expression: string;
+    meaning: string;
+    difference: string;
+  }[];
   contextMap: {
     scenes: { label: string; emoji: string; rating: number; style: "oral" | "academic" }[];
   };
