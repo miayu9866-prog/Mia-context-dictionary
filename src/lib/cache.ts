@@ -1,7 +1,10 @@
- import fs from "fs";
- import path from "path";
+import fs from "fs";
+import path from "path";
 
- const CACHE_DIR = path.join(process.cwd(), "data", "cache");
+ // Use /tmp on Vercel (writable), fall back to project data/cache locally
+ const CACHE_DIR = process.env.VERCEL
+   ? path.join("/tmp", "context-dictionary-cache")
+   : path.join(process.cwd(), "data", "cache");
 
  function ensureCacheDir(): void {
    if (!fs.existsSync(CACHE_DIR)) {

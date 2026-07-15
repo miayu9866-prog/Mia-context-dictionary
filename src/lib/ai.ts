@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import { SYSTEM_PROMPT } from "./prompt";
- import { getCachedData, setCachedData } from "./cache";
+import { getCachedData, setCachedData } from "./cache";
 import type { ExpressionData } from "@/types";
 import { z } from "zod";
 
